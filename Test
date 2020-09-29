@@ -1,0 +1,22 @@
+"""
+Created on Frid Sept 25
+
+@Author: Gaelle Patricia Talotsing
+
+"""
+
+#Python code to find the percentage of twenty-first century Wednesdays fall on the last day of a month.
+#The twenty-first century began on 1 January 2001 (a Monday) and will end on 31 December 2100 (a Friday). 
+
+import calendar
+List_of_last_day=[]
+for year in range(2001,2101):
+    for month in range(1,13):
+        day, num_days = calendar.monthrange(year, month) #To get weekday of first day of the month and number of days in month
+        last_week = num_days % 7
+        last_day = (day + last_week) % 7
+        List_of_last_day.append(last_day) #List of every ends of ends of all the months of 21st century
+# print (List_of_last_day)
+Per_Wed=100*List_of_last_day.count(3)/len(List_of_last_day) # 0-6 correspond weekdays, 3:Wednesday 
+print ("The percentage of twenty-first century Wednesdays fall on the last day of a month is :",Per_Wed, "%")
+        
